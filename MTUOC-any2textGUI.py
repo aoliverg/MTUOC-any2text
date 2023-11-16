@@ -32,7 +32,7 @@ from tkinter import messagebox
 
 def select_file():
     infile = askopenfilename(initialdir = ".",filetypes =(("All Files","*.*"),),
-                           title = "Choose a grammar file.")
+                           title = "Select the input file.")
     E1.delete(0,END)
     E1.insert(0,infile)
     E1.xview_moveto(1)

@@ -30,13 +30,13 @@ from tkinter.filedialog import askdirectory
 from tkinter import messagebox
 
 def select_input_directory():
-    infile = askdirectory(initialdir = ".",title = "Choose a grammar file.")
+    infile = askdirectory(initialdir = ".",title = "Select the input directory.")
     E1.delete(0,END)
     E1.insert(0,infile)
     E1.xview_moveto(1)
     
 def select_output_directory():
-    infile = askdirectory(initialdir = ".",title = "Choose a grammar file.")
+    infile = askdirectory(initialdir = ".",title = "Select the output directory.")
     E2.delete(0,END)
     E2.insert(0,infile)
     E2.xview_moveto(1)
