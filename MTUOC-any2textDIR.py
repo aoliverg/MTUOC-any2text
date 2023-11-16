@@ -35,7 +35,11 @@ parser.add_argument('-f','--fixpdf', action="store_true", dest="fixpdf", help='F
 
 args = parser.parse_args()
 inputdir=args.inputdir
+if not inputdir.endswith("/") and not inputdir.endswith("\\"):
+    inputdir=inputdir+"/"
 outputdir=args.outputdir
+if not outputdir.endswith("/") and not outputdir.endswith("\\"):
+    outputdir=outputdir+"/"
 isExist = os.path.exists(outputdir)
 fixpdf=args.fixpdf
 
@@ -45,7 +49,7 @@ if not isExist:
 for file_path in os.listdir(inputdir):
     if os.path.isfile:
         file_pathIN=os.path.join(inputdir, file_path)
-        file_name, file_extension = os.path.splitext(file_path)
+        file_name, file_extension = os.path.splitext(file_path)                
         file_pathOUT=os.path.join(outputdir, file_path+".txt")
         sortida=codecs.open(file_pathOUT,"w",encoding="utf-8")
         try:
@@ -61,18 +65,4 @@ for file_path in os.listdir(inputdir):
 
 
 
-'''
-inputfile=args.inputfile
-file_name, file_extension = os.path.splitext(inputfile)
 
-outputfile=inputfile+".txt"
-
-sortida=codecs.open(outputfile,"w",encoding="utf-8")
-text = textract.process(inputfile).decode("utf-8")
-if fixpdf and file_extension in [".pdf",".PDF"]:
-    text=arregla(text)
-for linia in text.split("\n"):
-    linia=linia.rstrip()
-    sortida.write(linia+"\n")
-sortida.close()
-'''
